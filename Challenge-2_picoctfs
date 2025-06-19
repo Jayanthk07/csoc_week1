@@ -53,4 +53,36 @@ now cd _advanced-potion-making-0.extracted
 this is same as the header changing in the file it seemed like a  png, so i changes the headers according to png and saved it and added .png
 now , using java -jar and tried some combinations , there i got the flag picoCTF{wiz4rdry}
 
--->
+-->File types
+in this one we have to identify the file compression type anad see how to decompress it and keep going , some types of decompressors may not be there, install them and proceed with the following steps to get the flag
+ar
+ar x flag.ar
+cpio
+open it 
+bzip2
+rename to .bz2
+bzip2 -d flag.bz2
+rename it with .gz
+gunzip -d flag.gz
+lzip 
+rename it to .lzip
+lzip -d flag.lzip
+lz4
+rename it to .lz4
+lz4 -d flag.lz4
+shows binary but is lzma
+rename it to .lzma
+lzma -d flag.lzma
+lzo
+rename it to .lzo
+lzop -d flag.lzo
+lzip 
+rename as .lzip
+lzip -d flag.lzip
+xz
+rename it as .xz
+xz -d flag.xz
+in the middle we may come across some file which appear  to be like bin or anything else , better check every file using file command
+then u get a text file and that is in hex , now convert it back , there is ur flag picoCTF{filen@m3_m@n1pul@t10n_f0r_0b2cur17y_3c79c5ba}
+
+
