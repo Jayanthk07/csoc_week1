@@ -1,33 +1,55 @@
 sakuro room:
 
 
-task1:
+task 1:
 Let's GO!
 
 
-task2:
+task 2:
 after clicking on the image link , i downloaded it an used exiftool to see the metadata ,where i was able to see the username which is SakuraSnowAngelAiko
 
-task3:
+task 3:
 1)now i googles that name , i got a github repository in which there was a repository names pgp , which is familar to pgp keys for proton mail which may contain data about mail , so i copied that and anlysed it in cyberchef 
  as pgp key uses base 64 , i decoded it with base64 , now i see the mail in between the data , which is SakuraSnowAngel83@protonmail.com
 2)after accesing twitter account with that name , i was able to see a tweet in which he introduces himself with the name Aiko abe , which has a seperate twittere account
 
-task4:
+task 4:
 1)to get the crypto data, after seeing all things related to him , i saw ETH in his github repositories, which seems sus , so i checked that repo , and it was like modified and hided , but according to thw hint in the question 
  i have to check the hostory , from which i get the public key , through which i can search transactions to that ,and the coin in ehterium
 2)address is 0xa102397dbeeBeFD8cD2F73A89122fCdB53abB6ef
 3)from those transactions data , after opening it on that days data , we can see it is ethermine
 4)and by analysing the token transfer details we can further see tether coins were also involved
 
-task5:
+task 5:
 1)as we already know the twitter handle is SakuraLoverAiko
 2)after checking his twitter handle ,we can see that he posted a photo related to his home wifi ssid , we can use that in wiglenet to get the bsssid using advance search and that bssid is 84:af:ec:34:fc:f8
 
 
-taske6:
+taske 6:
 1)so by the timelines of his posts we can see the last posts before his boarding , which was a tree road kinda photo , we can google search that photo which is in washington dc and the airpport there is DCA
 2)he posted his last layover photo which also upon google search reveals , the location as HND(haneda airport)
 3)by zooming the same part in the map as that of given in the twitter handle , we see a big lake which is named as Lake Inawashiro
 4)from the wiglenet , we have extracted a lot of data using the ssid ,  we extracted bssid and also the location which is hirosaki..
 
+
+sakuro room completed:
+
+grahlix:
+
+osint_6:
+to verify the image we use the tool Yandex, tineye, google..and got this info about that
+"Terrorist attack in Baghdad - 14 people were killed, about 30 injured"
+hence it is not a attack in pakistan
+
+osint_4:
+i have searched this photo using google and got its name as "Oan resort"
+i searched it in gooogle and got its coordinates-->7.362786659774757, 151.7564046271954
+and now i opened the google earth for 3d view , so i also confirmed the direction in which photo was taken-->7°21'05"N 151°45'30"E(apprx)
+
+osint_3:
+i have read teh article about this visit , and read a part where it is writtem , that he went to the presidents and after searching for its doors photos , i understood it is the on e, and
+now i started tracing its co ordinated using google earth and used the historical data , to recheck the loaction in 3D , we can confirm the location as 39°55'52"N 32°47'58"E
+
+
+
+-----------------------------completed-------------------------------------------------
