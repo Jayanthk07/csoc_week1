@@ -2,3 +2,21 @@
 by doing exiftool cat.jpg , to check the metadata , we see some sus string in license part , it may be base64 , so i decoded it , then the flag came --> picoCTF{the_m3tadata_1s_modified}
 
 -->Matryoshka doll
+now i do binwalk -e dolls.jpg to extrat any hidden files 
+the i go to the hidden directory , there i found another jpg , then i extractd again with binwalk and now , it repeats until i get the flag , the series of commands are given bellow
+binwalk -e dolls.jpg
+cd _dolls.jpg.extracted/
+unzip 4286C.zip 
+cd base_images/
+binwalk -e 2_c.jpg 
+cd _2_c.jpg.extracted/
+unzip 2DD3B.zip
+cd base_images/
+binwalk -e 3_c.jpg 
+cd _3_c.jpg.extracted/
+unzip 1E2D6.zip 
+cd base_images/
+binwalk -e 4_c.jpg 
+cd _4_c.jpg.extracted/
+cat flag.txt
+and the flag is picoCTF{4cf7ac000c3fb0fa96fb92722ffb2a32}
