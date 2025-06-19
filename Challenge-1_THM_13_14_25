@@ -1,0 +1,46 @@
+THM_13:
+first we move to the dictory where the accesss.log is there --> cd Desktop/artefacts
+now we analyse the access.log file by for the answers
+1) we check the filed and apply this command --> cut -d ' ' -f2 | sort | uniq | wc -l
+    this command gives the no of uniq ips in the access.log
+2) cut -d ' ' -f3 access.log | cut -d ':' -f1 | sort | uniq -c | wc -l
+   this command gives the no of uniq domains visited , we have analysed the fields to do this 
+3)cut -d ' ' -f3 access.log | cut -d ':' -f1 | sort | uniq -c | sort -nr 
+  the top one gives the least acccessed domain , now we use this to acces the http request of that
+  grep "least_accessed" access.log | cut -d ' ' -f6 
+  this gives the answer
+4)the one with more connections, and excluding some obvious ones we can get the asnwer from the (2) or (3) 
+5)and now from the present data we use ---> grep "sus_domain" access.log , we can see the ip address from this data
+6)now just appending | wc -l , will give us the number of requests made by the malicious domain 
+7)we now need to anlyse th requests of the sus_domain , and in that we can find the sus field which may traner the data , which is goodies column
+ and it also looks like a base 64 so -->grep "sus_domain" access.log | cut -d ' ' -f5 | cut -d '=' -f2 | base64 -d
+
+
+
+THM_14:
+looks like we need a tool named FTK imager here , which helps a lot in Disc forensics, so lets get into it
+this provides an env to teset our things without infecting the actual pc
+lets add the item and start the analysis
+1)I see a dont open folder , which is sus , so i open it and read the secret.txt sus thing and ther we go , we get the server name in chats(mcgreedysecretc2.thm)
+2)now we can see that zip archieve named "JuicyTomaTOY.zip" and the file inside it is "JuicyTomaTOY.exe"
+3)we go back to the root , and see there are some png , lets convert them into hex ,and search for our flag , by using the ctrl+F , the flag is THM{byt3-L3vel_@n4Lys15}
+4)right click on the physical drive that u attached , now select verify drive image , then it will give u all the hashes , sha1 = 39f2dea6ffb43bf80d80f19d122076b3682773c2
+
+THM_25:
+now we have to use the volatility tool to analyse the memory , this is for RAM (volatile memory), we dont have linux version available directly , but we have it already setup for us in another
+directory hence , i copy it to my directory where i wanna analyse the evidence -->  cp Ubuntu_5.4.0-163-generic_profile.zip ~/.local/lib/python2.7/site-packages/volatility/plugins/overlays/linux/
+now its all setup and i can go through the questions,using some basic volatility commands
+1)we search through the command history --> vol.py -f linum.mem --profile="LinuxUbuntu_5_4_0-163-generic_profilex64" linux_bash
+  from this history we get the password which is NEhX4VSrN7sV, we get it by observing this from the sql command where this thign is after the -p tag
+2)now we use another volatility command to observe the proccesses  vol.py -f linum.mem --profile="LinuxUbuntu_5_4_0-163-generic_profilex64" linux_pslist
+  from this we can see what is the pid and ppids of the proccesses , for miner it is 10280
+3)now we will create a new directory --> mkdir extracted , to extract the binary data of the sus proccesses to that
+  vol.py -f linum.mem --profile="LinuxUbuntu_5_4_0-163-generic_profilex64" linux_procdump -D extracted -p PID , here in the PID's we can use the pids , from (2)
+  md5sum extracted/miner.PID.0x400000  we can use these commands to get the md5 sum
+4)same as above
+5)strings extracted/miner.<PID from question 2>.0x400000 | grep http://         from this commands we get the url that we need , now we need to use cyberchef to defang it
+  and now we get the defanged url    "hxxp[://]mcgreedysecretc2[.]thm"
+6)we look at the cron jobs to analyse sus --->vol.py -f linux.mem --profile="LinuxUbuntu_5_4_0-163-generic_profilex64" linux_enumerate_files | grep -i cron
+  there we go we find elfie , lets extract it to the extract directory using --> vol.py -f linux.mem --profile="LinuxUbuntu_5_4_0-163-generic_profilex64" linux_find_file -i 0xffff9ce9b78280e8 -O extracted/elfie 
+  check ls extracted/
+  and do cat elfie --> there we go we can see the location of mysql server there /var/tmp/.system-python3.8-Updates/mysqlserver
