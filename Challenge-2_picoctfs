@@ -47,3 +47,10 @@ there i got the flag , picoCTF{3nh4nc3d_d0a757bf}
 -->advanced-potion-making
 i extracted the files from this using binwalk -e advanced-potion-making
 now cd _advanced-potion-making-0.extracted
+
+
+-->advanced-potion-making
+this is same as the header changing in the file it seemed like a  png, so i changes the headers according to png and saved it and added .png
+now , using java -jar and tried some combinations , there i got the flag picoCTF{wiz4rdry}
+
+-->
