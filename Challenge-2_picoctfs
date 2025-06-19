@@ -44,14 +44,20 @@ flag: picoCTF{D1d_u_kn0w_ppts_r_z1p5}
 in this challange we have to analyse an svg image , its coded , not like a normal image, i just opened it by using cat drawing.flag.svg
 there i got the flag , picoCTF{3nh4nc3d_d0a757bf}
 
+
+
 -->advanced-potion-making
 i extracted the files from this using binwalk -e advanced-potion-making
 now cd _advanced-potion-making-0.extracted
 
 
+
+
 -->advanced-potion-making
 this is same as the header changing in the file it seemed like a  png, so i changes the headers according to png and saved it and added .png
 now , using java -jar and tried some combinations , there i got the flag picoCTF{wiz4rdry}
+
+
 
 -->File types
 in this one we have to identify the file compression type anad see how to decompress it and keep going , some types of decompressors may not be there, install them and proceed with the following steps to get the flag
@@ -85,4 +91,19 @@ xz -d flag.xz
 in the middle we may come across some file which appear  to be like bin or anything else , better check every file using file command
 then u get a text file and that is in hex , now convert it back , there is ur flag picoCTF{filen@m3_m@n1pul@t10n_f0r_0b2cur17y_3c79c5ba}
 
+
+
+-->hideme
+in this challange we analyse the file an use binwalk to extract the hidden files , and in tose i seee a file named hidden , now i go into that and i get the flas which is picoCTF{Hiddinng_An_imag3_within_@n_ima9e_d55982e8}
+
+
+-->MSB
+in this one, after reading thorugh it we can undestand that by seeing the image the bit already here is the msot significant bit , hence we use stegsolve tool to do this one 
+after using stegsolve by putting rgb values at 777 we get the flag . here we have to extrac the data.
+flag is obtained after checking the whole message  picoCTF{15_y0ur_que57_ qu1x071c_0r_h3r0 1c_3a219174}
+
+
+-->extensions
+in this challange we understand that file extension is wrong as , after opening it , it looked clumsy , so lets check what kinda file it is using exiftool
+it comes out to be a png from the metadata , so i rename it to .png and open it and there is the flag --> picoCTF{now_you_know_about_extensions}
 
