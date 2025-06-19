@@ -1,0 +1,29 @@
+sakuro room:
+
+
+task1:
+Let's GO!
+
+
+task2:
+after clicking on the image link , i downloaded it an used exiftool to see the metadata ,where i was able to see the username which is SakuraSnowAngelAiko
+
+task3:
+1)now i googles that name , i got a github repository in which there was a repository names pgp , which is familar to pgp keys for proton mail which may contain data about mail , so i copied that and anlysed it in cyberchef 
+ as pgp key uses base 64 , i decoded it with base64 , now i see the mail in between the data , which is SakuraSnowAngel83@protonmail.com
+2)after accesing twitter account with that name , i was able to see a tweet in which he introduces himself with the name Aiko abe , which has a seperate twittere account
+
+task4:
+1)to get the crypto data, after seeing all things related to him , i saw ETH in his github repositories, which seems sus , so i checked that repo , and it was like modified and hided , but according to thw hint in the question 
+ i have to check the hostory , from which i get the public key , through which i can search transactions to that ,and the coin in ehterium
+2)address is 0xa102397dbeeBeFD8cD2F73A89122fCdB53abB6ef
+3)from those transactions data , after opening it on that days data , we can see it is ethermine
+4)and by analysing the token transfer details we can further see tether coins were also involved
+
+task5:
+1)as we already know the twitter handle is SakuraLoverAiko
+2)after checking his twitter handle ,we can see that he posted a photo related to his home wifi ssid , we can use that in wiglenet to get the bsssid using advance search and that bssid is 84:af:ec:34:fc:f8
+
+
+taske6:
+1)
