@@ -26,4 +26,8 @@ task5:
 
 
 taske6:
-1)
+1)so by the timelines of his posts we can see the last posts before his boarding , which was a tree road kinda photo , we can google search that photo which is in washington dc and the airpport there is DCA
+2)he posted his last layover photo which also upon google search reveals , the location as HND(haneda airport)
+3)by zooming the same part in the map as that of given in the twitter handle , we see a big lake which is named as Lake Inawashiro
+4)from the wiglenet , we have extracted a lot of data using the ssid ,  we extracted bssid and also the location which is hirosaki..
+
