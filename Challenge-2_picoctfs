@@ -38,3 +38,12 @@ picoCTF{qu1t3_a_v13w_2020}
 in this challange m there is pptm given , as its linux i convert it to a zip file and opened it , by extracting it , hence
 after seeing all files and subfiles in it i see at file names hidden , so i opened it ,and it was a base64 wth gaps , so after decoding it , i get the flag
 flag: picoCTF{D1d_u_kn0w_ppts_r_z1p5}
+
+
+-->Enhance
+in this challange we have to analyse an svg image , its coded , not like a normal image, i just opened it by using cat drawing.flag.svg
+there i got the flag , picoCTF{3nh4nc3d_d0a757bf}
+
+-->advanced-potion-making
+i extracted the files from this using binwalk -e advanced-potion-making
+now cd _advanced-potion-making-0.extracted
