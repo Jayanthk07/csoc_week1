@@ -1,0 +1,4 @@
+->information ctf
+by doing exiftool cat.jpg , to check the metadata , we see some sus string in license part , it may be base64 , so i decoded it , then the flag came --> picoCTF{the_m3tadata_1s_modified}
+
+-->Matryoshka doll
