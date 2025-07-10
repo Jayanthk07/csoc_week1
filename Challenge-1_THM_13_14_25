@@ -29,6 +29,7 @@ lets add the item and start the analysis
 THM_25:
 now we have to use the volatility tool to analyse the memory , this is for RAM (volatile memory), we dont have linux version available directly , but we have it already setup for us in another
 directory hence , i copy it to my directory where i wanna analyse the evidence -->  cp Ubuntu_5.4.0-163-generic_profile.zip ~/.local/lib/python2.7/site-packages/volatility/plugins/overlays/linux/
+it actually needs a memory dump to analyse , which we could get through lime extracter , already given in a directory for this challenge
 now its all setup and i can go through the questions,using some basic volatility commands
 1)we search through the command history --> vol.py -f linum.mem --profile="LinuxUbuntu_5_4_0-163-generic_profilex64" linux_bash
   from this history we get the password which is NEhX4VSrN7sV, we get it by observing this from the sql command where this thign is after the -p tag
