@@ -47,13 +47,6 @@ there i got the flag , picoCTF{3nh4nc3d_d0a757bf}
 
 
 -->advanced-potion-making
-i extracted the files from this using binwalk -e advanced-potion-making
-now cd _advanced-potion-making-0.extracted
-
-
-
-
--->advanced-potion-making
 this is same as the header changing in the file it seemed like a  png, so i changes the headers according to png and saved it and added .png
 now , using java -jar and tried some combinations , there i got the flag picoCTF{wiz4rdry}
 
@@ -61,31 +54,35 @@ now , using java -jar and tried some combinations , there i got the flag picoCTF
 
 -->File types
 in this one we have to identify the file compression type anad see how to decompress it and keep going , some types of decompressors may not be there, install them and proceed with the following steps to get the flag
-ar
-ar x flag.ar
-cpio
+the format is like filetype , compression type , decompression it with either code or normally by opening it.we find out the type and then rename it accrodingly
+some may show the false types and some may not even show any types by just seeing them  so we use file command.
+.ar
+archieve
 open it 
-bzip2
+.cpio
+open it 
+.bzip2
 rename to .bz2
 bzip2 -d flag.bz2
+.gz
 rename it with .gz
 gunzip -d flag.gz
-lzip 
+.lzip 
 rename it to .lzip
 lzip -d flag.lzip
-lz4
+.lz4
 rename it to .lz4
 lz4 -d flag.lz4
-shows binary but is lzma
+shows binary but is .lzma
 rename it to .lzma
 lzma -d flag.lzma
-lzo
+.lzo
 rename it to .lzo
 lzop -d flag.lzo
-lzip 
+.lzip 
 rename as .lzip
 lzip -d flag.lzip
-xz
+.xz
 rename it as .xz
 xz -d flag.xz
 in the middle we may come across some file which appear  to be like bin or anything else , better check every file using file command
@@ -94,12 +91,12 @@ then u get a text file and that is in hex , now convert it back , there is ur fl
 
 
 -->hideme
-in this challange we analyse the file an use binwalk to extract the hidden files , and in tose i seee a file named hidden , now i go into that and i get the flas which is picoCTF{Hiddinng_An_imag3_within_@n_ima9e_d55982e8}
+in this challange we analyse the file an use binwalk to extract the hidden files , and in those i seee a file named hidden , now i go into that and i get the flas which is picoCTF{Hiddinng_An_imag3_within_@n_ima9e_d55982e8}
 
 
 -->MSB
 in this one, after reading thorugh it we can undestand that by seeing the image the bit already here is the msot significant bit , hence we use stegsolve tool to do this one 
-after using stegsolve by putting rgb values at 777 we get the flag . here we have to extrac the data.
+after using stegsolve by putting rgb values at 777 (which means msb) get the we  flag . here we have to extract the data.
 flag is obtained after checking the whole message  picoCTF{15_y0ur_que57_ qu1x071c_0r_h3r0 1c_3a219174}
 
 
